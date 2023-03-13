@@ -1,0 +1,19 @@
+.gallery .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid;
+    border-radius: .5rem;
+    gap: 0;
+    justify-content: flex-start;
+}
+
+.gallery .card img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.gallery .card span {
+    text-align: center;
+}

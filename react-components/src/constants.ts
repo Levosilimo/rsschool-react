@@ -1,7 +1,8 @@
-export enum AppRoute {
-  Main = '/',
-  AboutUs = '/about-us',
-}
+export const AppRoute = {
+  Main: '/',
+  'About Us': '/about-us',
+  'Not Found': '/404',
+};
 
 export const DEVELOPERS = [
   {
