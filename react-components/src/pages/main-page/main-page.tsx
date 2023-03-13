@@ -14,7 +14,12 @@ class MainPage extends React.Component<Readonly<Record<string, never>>, mainPage
     searchValue: '',
   };
 
+  onUnload = () => {
+    localStorage.setItem(LOCALSTORAGE_SEARCH_KEY, this.state.searchValue);
+  };
+
   componentDidMount() {
+    window.addEventListener('beforeunload', this.onUnload);
     const searchValue = localStorage.getItem(LOCALSTORAGE_SEARCH_KEY);
     if (searchValue) {
       this.setState(() => ({ searchValue }));
@@ -23,7 +28,8 @@ class MainPage extends React.Component<Readonly<Record<string, never>>, mainPage
   }
 
   componentWillUnmount() {
-    localStorage.setItem(LOCALSTORAGE_SEARCH_KEY, this.state.searchValue);
+    this.onUnload();
+    window.removeEventListener('beforeunload', this.onUnload);
   }
 
   handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
