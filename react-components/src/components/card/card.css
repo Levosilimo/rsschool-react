@@ -9,11 +9,83 @@
 }
 
 .gallery .card img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 15vh;
     object-fit: contain;
 }
 
 .gallery .card span {
     text-align: center;
+}
+
+.gallery .card .product-id {
+    color: darkgrey;
+    font-size: .7rem;
+    position: relative;
+    width: 100%;
+    height: 0;
+    text-align: end;
+    padding-right: 0.5rem;
+    text-shadow: 1px 1px 2px white, 0 0 2em white, 0 0 0.4em white;
+}
+
+.gallery .card .card-top {
+    user-select: none;
+    display: flex;
+    width: 98%;
+    height: 0;
+}
+
+
+.gallery .card .price {
+    text-align: center;
+    font-size: 1rem;
+    display: flex;
+}
+
+.gallery .card .price del {
+    color: rgba(0,0,0, 0.8);
+    text-decoration: none;
+    position: relative;
+    font-weight: 100;
+}
+
+.gallery .card .price del:before {
+     content: " ";
+     display: block;
+     width: 100%;
+     border-top: 3px solid rgba(180,0,0, 0.5);
+     height: 4px;
+     position: relative;
+     bottom: -20px;
+     left: 0;
+     transform: rotate(-11deg);
+}
+
+.gallery .card .price ins {
+    font-weight: 500;
+    text-decoration: none;
+    padding: 1em 1em 1em .5em;
+}
+
+.gallery .card .star-rating {
+    color: gold;
+    border: 2px solid;
+    border-radius: 0.4rem;
+    display: inline-block;
+    font-size: 1.3rem;
+    position: relative;
+    height: fit-content;
+    background: rgba(0,0,60,0.7);
+}
+
+.gallery .card .star-rating__max,
+.gallery .card .star-rating__current {
+    position: absolute;
+    top: 0;
+}
+
+.gallery .card .star-rating__current {
+    overflow: hidden;
+    white-space: nowrap;
 }

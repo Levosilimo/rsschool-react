@@ -1,5 +1,5 @@
 import './gallery.css';
-import React from 'react';
+import * as React from 'react';
 import { IProductsResponse, IResponse } from '../../types';
 import Card from '../card/card';
 
@@ -9,31 +9,32 @@ type GalleryProps = {
 
 type GalleryState = {
   data: IResponse;
+  isDataLoading: boolean;
 };
 
 class Gallery extends React.Component<GalleryProps, GalleryState> {
-  state = { data: {} as IResponse };
+  state = { data: {} as IResponse, isDataLoading: true };
   componentDidMount() {
-    fetch('https://dummyjson.com/products')
-      .then(async (data) => (await data.json()) as IResponse)
-      .then((data) => this.setState({ data }));
+    fetch('https://dummyjson.com/products').then(async (data) => {
+      const state = { data: (await data.json()) as IResponse, isDataLoading: false };
+      this.setState(state);
+    });
   }
 
   getFilteredProducts(): IProductsResponse[] | null {
     const products = this.state.data.products;
-    console.log(products);
     let result: Array<IProductsResponse> = [];
     if (products && products.length) {
       result = products.filter(
         (productsResponse) =>
           !this.props.search.length ||
-          productsResponse.discountPercentage.toString(10).includes(this.props.search) ||
-          productsResponse.price.toString(10).includes(this.props.search) ||
-          productsResponse.rating.toString(10).includes(this.props.search) ||
+          productsResponse.title.toLowerCase().includes(this.props.search) ||
           productsResponse.brand.toLowerCase().includes(this.props.search) ||
           productsResponse.category.toLowerCase().includes(this.props.search) ||
           productsResponse.description.toLowerCase().includes(this.props.search) ||
-          productsResponse.title.toLowerCase().includes(this.props.search)
+          productsResponse.price.toString(10).includes(this.props.search) ||
+          productsResponse.discountPercentage.toString(10).includes(this.props.search) ||
+          productsResponse.rating.toString(10).includes(this.props.search)
       );
       if (result.length) return result;
     }
@@ -41,11 +42,16 @@ class Gallery extends React.Component<GalleryProps, GalleryState> {
   }
 
   render() {
+    const filteredProducts = this.getFilteredProducts();
     return (
       <div className="gallery">
-        {this.getFilteredProducts()?.map((product) => (
-          <Card key={product.id} product={product} />
-        )) ?? <h3>Products not found</h3>}
+        {filteredProducts ? (
+          filteredProducts.map((product) => <Card key={product.id} product={product} />)
+        ) : this.state.isDataLoading ? (
+          <h3>Loading...</h3>
+        ) : (
+          <h3>Products not found</h3>
+        )}
       </div>
     );
   }

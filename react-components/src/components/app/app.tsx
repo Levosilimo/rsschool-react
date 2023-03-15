@@ -16,7 +16,7 @@ class App extends React.Component<Readonly<Record<string, never>>, LocationConte
     };
   }
 
-  toggleTheme = (route: keyof typeof AppRoute) => {
+  toggleTheme = (route: keyof typeof AppRoute): void => {
     this.setState(() => ({
       route: route,
     }));

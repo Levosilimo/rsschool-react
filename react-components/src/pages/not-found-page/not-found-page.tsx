@@ -15,6 +15,7 @@ class NotFoundPage extends React.Component<
   render() {
     return (
       <div className="page page-not-found">
+        <h1>{(this.context as LocationContextValue).route}</h1>
         <h2>404</h2>
         <p>Page not found</p>
         <Link className="link" to={AppRoute.Main}>

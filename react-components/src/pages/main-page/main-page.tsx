@@ -1,6 +1,5 @@
 import './main-page.css';
 import React from 'react';
-import reactLogo from '../../assets/react.svg';
 import { LOCALSTORAGE_SEARCH_KEY } from '../../constants';
 import { LocationContext, LocationContextValue } from '../../contexts/location-context';
 import Gallery from '../../components/gallery/gallery';
@@ -41,6 +40,7 @@ class MainPage extends React.Component<Readonly<Record<string, never>>, mainPage
   render() {
     return (
       <div className="page main-page">
+        <h1>{(this.context as LocationContextValue).route}</h1>
         <div className="search-wrapper">
           <img src="../../public/loupe.svg" className="loupe" alt="Search" />
           <input
@@ -50,7 +50,14 @@ class MainPage extends React.Component<Readonly<Record<string, never>>, mainPage
             value={this.state.searchValue}
           />
         </div>
-        <Gallery search={this.state.searchValue} />
+        <Gallery
+          search={this.state.searchValue
+            .trim()
+            .toLowerCase()
+            .split(' ')
+            .map((word) => word.trim())
+            .join(' ')}
+        />
       </div>
     );
   }
