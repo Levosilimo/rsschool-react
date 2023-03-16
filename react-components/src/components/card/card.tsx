@@ -29,10 +29,9 @@ class Card extends React.Component<CardProps, CardState> {
     let cent = '00';
     const separatorIndex = main.indexOf('.');
     if (separatorIndex > -1) {
-      cent = main.substring(separatorIndex + 1, separatorIndex + 3);
-      if (cent.length === 1) {
-        cent = cent + '0';
-      }
+      cent = Number('0.' + main.substring(separatorIndex + 1, separatorIndex + 3))
+        .toFixed(2)
+        .substring(2);
       main = main.substring(0, separatorIndex);
     }
     return { main, cent };

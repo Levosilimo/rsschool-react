@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "jest --coverage --collectCoverageFrom='src/**/*.{ts,tsx}'",
+    "test": "jest --coverage",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\" --fix"
   },
   "dependencies": {

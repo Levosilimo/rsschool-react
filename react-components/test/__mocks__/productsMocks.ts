@@ -15,9 +15,9 @@ export const testProduct: IProductsResponse = {
   brand: 'Test brand',
   category: 'Test category',
   description: 'Test description',
-  price: 10,
-  discountPercentage: 10,
-  rating: 5,
+  price: 11,
+  discountPercentage: 15,
+  rating: 3.88,
 };
 export const testProductRes: IResponse = {
   limit: 0,

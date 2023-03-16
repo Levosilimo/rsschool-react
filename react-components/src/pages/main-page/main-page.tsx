@@ -1,5 +1,5 @@
 import './main-page.css';
-import React from 'react';
+import * as React from 'react';
 import { LOCALSTORAGE_SEARCH_KEY } from '../../constants';
 import { LocationContext, LocationContextValue } from '../../contexts/location-context';
 import Gallery from '../../components/gallery/gallery';
@@ -33,7 +33,7 @@ class MainPage extends React.Component<Readonly<Record<string, never>>, mainPage
 
   handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState(() => ({
-      searchValue: e.target.value ?? '',
+      searchValue: e.target.value,
     }));
   };
 

@@ -17,15 +17,27 @@ describe('Card', () => {
   });
 
   it('displays the full and discounted prices', () => {
-    const { getByText } = render(<Card product={testProduct} />);
-    expect(getByText(`€${testProduct.price},`)).toBeInTheDocument();
+    const { container } = render(<Card product={testProduct} />);
+    const amountContainers = container.getElementsByClassName('amount');
+    const regexNotANumber = /[^0-9,.]/g;
+    const regexComa = /,/g;
+    expect(amountContainers.length).toBe(2);
     expect(
-      getByText(`€${(testProduct.price * (100 - testProduct.discountPercentage)) / 100},`)
-    ).toBeInTheDocument();
+      Number(amountContainers[0].textContent?.replace(regexNotANumber, '').replace(regexComa, '.'))
+    ).toBe(Number(testProduct.price.toFixed(2)));
+    const discountedPrice = testProduct.price * ((100 - testProduct.discountPercentage) / 100);
+    expect(
+      Number(amountContainers[1].textContent?.replace(regexNotANumber, '').replace(regexComa, '.'))
+    ).toBe(Number(discountedPrice.toFixed(2)));
   });
 
   it('displays the product rating', () => {
-    const { getByText } = render(<Card product={testProduct} />);
+    const { getByText, container } = render(<Card product={testProduct} />);
+    const starRatingContainer = container.getElementsByClassName('star-rating__current');
+    expect(starRatingContainer.length).toBe(1);
+    expect((starRatingContainer[0] as HTMLElement).style.width).toBe(
+      `${(testProduct.rating / 5) * 100}%`
+    );
     expect(getByText('☆☆☆☆☆')).toBeInTheDocument();
     expect(getByText('★★★★★')).toBeInTheDocument();
   });

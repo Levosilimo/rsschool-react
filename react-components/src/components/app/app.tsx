@@ -12,11 +12,11 @@ class App extends React.Component<Readonly<Record<string, never>>, LocationConte
     super(props);
     this.state = {
       route: 'Main',
-      setRoot: this.toggleTheme,
+      setRoot: this.setRoot,
     };
   }
 
-  toggleTheme = (route: keyof typeof AppRoute): void => {
+  setRoot = (route: keyof typeof AppRoute): void => {
     this.setState(() => ({
       route: route,
     }));
