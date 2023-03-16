@@ -1,4 +1,4 @@
-.page-not-found {
+.not-found-page {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,7 +6,7 @@
     height: 100%;
 }
 
-.page-not-found h2 {
+.not-found-page h2 {
     font-size: 125px;
     color: green;
     margin: 0 0 20px;
@@ -14,7 +14,7 @@
     2px 2px #000, -2px -2px #000, 2px -2px #000, -2px 2px #000;
 }
 
-.page-not-found p {
+.not-found-page p {
     text-align: center;
     margin: 0 0 15px;
     font-size: 26px;

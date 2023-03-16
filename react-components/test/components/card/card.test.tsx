@@ -17,7 +17,7 @@ describe('Card', () => {
   });
 
   it('displays the full and discounted prices', () => {
-    const { getByText, getByRole } = render(<Card product={testProduct} />);
+    const { getByText } = render(<Card product={testProduct} />);
     expect(getByText(`€${testProduct.price},`)).toBeInTheDocument();
     expect(
       getByText(`€${(testProduct.price * (100 - testProduct.discountPercentage)) / 100},`)

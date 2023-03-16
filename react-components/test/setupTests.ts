@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom/extend-expect';
+import { cleanup } from '@testing-library/react';
 
 const originalError = console.error;
 
@@ -13,4 +14,8 @@ beforeAll(() => {
 
 afterAll(() => {
   console.error = originalError;
+});
+
+afterEach(() => {
+  cleanup();
 });

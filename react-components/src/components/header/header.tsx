@@ -12,7 +12,7 @@ class Header extends React.Component<
     return (
       <header className="header">
         <h2 className="header-title">React Components</h2>
-        <span>{(this.context as LocationContextValue).route}</span>
+        <span>{`${(this.context as LocationContextValue).route} page`}</span>
         <ul className="header-menu">
           {Object.entries(AppRoute).map((route) => {
             const isRouteInUse = (this.context as LocationContextValue).route === route[0];
