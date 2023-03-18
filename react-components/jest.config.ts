@@ -2,7 +2,7 @@ import type { JestConfigWithTsJest } from 'ts-jest';
 const config: JestConfigWithTsJest = {
   testEnvironment: './test/env.ts',
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.tsx?$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.json' }],
   },
   collectCoverageFrom: [
     './src/**/*.{ts,tsx}',
@@ -16,11 +16,6 @@ const config: JestConfigWithTsJest = {
       './test/__mocks__/fileMock.js',
   },
   setupFilesAfterEnv: ['./test/setupTests.ts'],
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.json',
-    },
-  },
 };
 
 export default config;
