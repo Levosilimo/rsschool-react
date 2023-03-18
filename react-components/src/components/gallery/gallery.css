@@ -1,0 +1,15 @@
+.gallery {
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(368px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: .5rem;
+    justify-content: end;
+}
+
+@media (max-width: 500px) {
+    .gallery {
+        display: flex;
+        flex-direction: column;
+    }
+}
