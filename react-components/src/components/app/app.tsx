@@ -6,6 +6,7 @@ import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import { LocationContext, LocationContextValue } from '../../contexts/location-context';
 import { AppRoute } from '../../constants';
 import AboutUsPage from '../../pages/about-us-page/about-us-page';
+import FormsPage from '../../pages/forms-page/forms-page';
 
 class App extends React.Component<Readonly<Record<string, never>>, LocationContextValue> {
   constructor(props: Readonly<Record<string, never>>) {
@@ -30,6 +31,7 @@ class App extends React.Component<Readonly<Record<string, never>>, LocationConte
             <Route path={AppRoute.Main} element={<MainPage />} />
             <Route path={AppRoute['About Us']} element={<AboutUsPage />} />
             <Route path="*" element={<NotFoundPage />} />
+            <Route path={AppRoute.Forms} element={<FormsPage />} />
           </Route>
         </Routes>
       </LocationContext.Provider>

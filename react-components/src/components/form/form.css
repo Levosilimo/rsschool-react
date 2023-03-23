@@ -1,0 +1,130 @@
+.card-creating-form {
+    display: flex;
+    flex-direction: column;
+    color: darkslategray;
+}
+
+.card-creating-form label {
+    display: block;
+    margin: .5rem;
+}
+
+.remark {
+    margin: .3rem;
+    color: grey;
+}
+
+.card-creating-form input {
+    display: block;
+    border-radius: 1rem;
+    border-color: limegreen;
+    color: black;
+    width: 100%;
+    margin: 0;
+}
+
+.card-creating-form input:focus-visible {
+    border-color: limegreen;
+}
+
+input[type='checkbox'] {
+    width: 1rem;
+    height: 1rem;
+}
+
+input[type="checkbox" i]:focus-visible {
+    outline-color: greenyellow;
+}
+
+input[type='file'] {
+    border-radius: 0;
+}
+
+.card-creating-form button {
+    box-shadow: 0 0 0 greenyellow;
+    margin: 1rem .5rem;
+    border-radius: 2rem;
+    background: darkgreen;
+    padding: .5rem;
+    color: white;
+    cursor: pointer;
+    transition: .2s;
+    font-size: 1.3rem;
+}
+
+.card-creating-form button:hover {
+    scale: 1.05;
+    background: green;
+    box-shadow: 0 0 .5rem greenyellow;
+}
+
+
+.card-creating-form fieldset {
+    margin-inline: 0;
+    padding-block: 0;
+}
+
+.card-creating-form fieldset div {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.switch-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.switch input
+{
+    display: none;
+}
+
+.switch
+{
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    margin: 0;
+    position: relative;
+}
+
+.slider
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 30px;
+    box-shadow: 0 0 0 2px #777, 0 0 4px #777;
+    cursor: pointer;
+    border: 4px solid transparent;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.slider:before
+{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #777;
+    border-radius: 30px;
+    transform: translateX(-30px);
+    transition: 0.2s;
+}
+
+input:checked + .slider:before
+{
+    transform: translateX(30px);
+    background-color: limeGreen;
+}
+
+input:checked + .slider
+{
+    box-shadow: 0 0 0 2px limeGreen, 0 0 8px limeGreen;
+}
