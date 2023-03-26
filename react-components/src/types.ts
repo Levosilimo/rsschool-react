@@ -35,6 +35,7 @@ export interface UserData {
   givenName: string;
   middleName?: string;
   familyName: string;
+  email: string;
   dateOfBirth: Date;
   countryOfOrigin: ArrayElement<typeof COUNTRIES>;
   sex: Sex;

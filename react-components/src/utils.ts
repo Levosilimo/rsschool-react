@@ -7,3 +7,7 @@ export function getAge(dateOfBirth: Date): number {
   }
   return age;
 }
+
+export function isStringUppercase(str: string | undefined) {
+  return str && str === str.toUpperCase();
+}

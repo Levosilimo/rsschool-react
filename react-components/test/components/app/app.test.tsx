@@ -13,6 +13,7 @@ describe('App component', () => {
 
     expect(container.getElementsByClassName('not-found-page').length).toBe(0);
     expect(container.getElementsByClassName('main-page').length).toBe(1);
+    expect(container.getElementsByClassName('form-page').length).toBe(0);
     expect(container.getElementsByClassName('about-us-page').length).toBe(0);
   });
 
@@ -25,7 +26,21 @@ describe('App component', () => {
 
     expect(container.getElementsByClassName('not-found-page').length).toBe(0);
     expect(container.getElementsByClassName('main-page').length).toBe(0);
+    expect(container.getElementsByClassName('form-page').length).toBe(0);
     expect(container.getElementsByClassName('about-us-page').length).toBe(1);
+  });
+
+  it('renders the form page when the route is set to "Form"', () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/form']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(container.getElementsByClassName('not-found-page').length).toBe(0);
+    expect(container.getElementsByClassName('main-page').length).toBe(0);
+    expect(container.getElementsByClassName('form-page').length).toBe(1);
+    expect(container.getElementsByClassName('about-us-page').length).toBe(0);
   });
 
   it('renders the not found page when the route is not recognized', () => {
@@ -37,6 +52,7 @@ describe('App component', () => {
 
     expect(container.getElementsByClassName('not-found-page').length).toBe(1);
     expect(container.getElementsByClassName('main-page').length).toBe(0);
+    expect(container.getElementsByClassName('form-page').length).toBe(0);
     expect(container.getElementsByClassName('about-us-page').length).toBe(0);
   });
 });

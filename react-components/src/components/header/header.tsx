@@ -11,7 +11,7 @@ class Header extends React.Component<
   render() {
     return (
       <header className="header">
-        <h2 className="header-title">React Components</h2>
+        <h2 className="header-title">React Forms</h2>
         <span>{`${(this.context as LocationContextValue).route}`}</span>
         <ul className="header-menu">
           {Object.entries(AppRoute).map((route) => {

@@ -42,7 +42,7 @@ class MainPage extends React.Component<Readonly<Record<string, never>>, mainPage
       <div className="page main-page">
         <h1>{(this.context as LocationContextValue).route}</h1>
         <div className="search-wrapper">
-          <img src="../../public/loupe.svg" className="loupe" alt="Search" />
+          <img src="./loupe.svg" className="loupe" alt="Search" />
           <input
             type="text"
             placeholder="Search here"

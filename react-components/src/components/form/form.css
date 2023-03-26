@@ -23,6 +23,10 @@
     margin: 0;
 }
 
+.card-creating-form select {
+    width: 100%;
+}
+
 .card-creating-form input:focus-visible {
     border-color: limegreen;
 }
@@ -38,6 +42,12 @@ input[type="checkbox" i]:focus-visible {
 
 input[type='file'] {
     border-radius: 0;
+}
+
+.input-error {
+    color: red;
+    font-size: .8rem;
+    display: block;
 }
 
 .card-creating-form button {

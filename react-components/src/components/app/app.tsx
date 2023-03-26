@@ -31,7 +31,7 @@ class App extends React.Component<Readonly<Record<string, never>>, LocationConte
             <Route path={AppRoute.Main} element={<MainPage />} />
             <Route path={AppRoute['About Us']} element={<AboutUsPage />} />
             <Route path="*" element={<NotFoundPage />} />
-            <Route path={AppRoute.Forms} element={<FormsPage />} />
+            <Route path={AppRoute.Form} element={<FormsPage />} />
           </Route>
         </Routes>
       </LocationContext.Provider>

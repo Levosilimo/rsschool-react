@@ -1,15 +1,14 @@
-.forms-page {
+.form-page {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .cards-wrapper {
-    margin: 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(368px, 1fr));
     grid-auto-rows: 1fr;
-    gap: .5rem;
+    gap: 0.5rem;
     justify-content: end;
     width: 100%;
 }

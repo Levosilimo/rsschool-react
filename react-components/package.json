@@ -11,6 +11,7 @@
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\" --fix"
   },
   "dependencies": {
+    "@testing-library/user-event": "^14.4.3",
     "identity-obj-proxy": "^3.0.0",
     "jest-config": "^29.5.0",
     "jest-fetch-mock": "^3.0.3",
